@@ -1,8 +1,7 @@
-import { Clapperboard } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import Card from "./Card";
 import presetMovies from "../data/presetMovie.json";
-import Search from "./search";
+import Search from "./Search";
 import useApiCall from "../hooks/useApiCall";
 import Loader from "./Loader";
 
