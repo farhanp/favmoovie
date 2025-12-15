@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 
-const BASE_URL = "http://www.omdbapi.com/";
-const API_KEY = "e3a10ed9";
+// const BASE_URL = "http://www.omdbapi.com/";
+
+const BASE_URL = "/api/search";
 
 const useApiCall = (search) => {
   const [state, setState] = useState({
@@ -21,7 +22,7 @@ const useApiCall = (search) => {
     const controller = new AbortController();
     abortControllerRef.current = controller;
     setState((prev) => ({ ...prev, loading: true, error: null }));
-    const url = `${BASE_URL}?apiKey=${API_KEY}&${search}=${value}`;
+    const url = `${BASE_URL}?${search}=${encodeURIComponent(value)}`;
     const options = {
       method: "GET",
       signal: controller.signal,
