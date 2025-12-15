@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: ["light", "dark"],
+  darkTheme: "dark",
+  base: true,   // keep base styles
+  logs: false,
+  styled: true,
+  rtl: false,
+  prefix: "",
+  dataTheme: false, // <- disables automatic data-theme
+}
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff1a1a #ffffff14;
+  font-family: 'Quicksand', sans-serif;
+}
+
+@layer utilities {
+  @keyframes dark-diagonal-fill {
+    from {
+      clip-path: polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%);
+    }
+
+    to {
+      clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    }
+  }
+
+  .dark-bg-diagonal {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dark-bg-diagonal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #18181b;
+    z-index: -1;
+    clip-path: polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  }
+
+  .dark .dark-bg-diagonal::before {
+    animation: dark-diagonal-fill 0.5s ease-in-out forwards;
+  }
+}
