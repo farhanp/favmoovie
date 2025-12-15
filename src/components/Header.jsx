@@ -1,6 +1,4 @@
 import { Clapperboard, Moon, Sun } from "lucide-react";
-import React from "react";
-import Search from "./search";
 import useDarkMode from "../hooks/useDarkMode";
 
 const Header = () => {
