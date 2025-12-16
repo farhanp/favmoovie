@@ -18,13 +18,33 @@
 }
 
 @layer utilities {
-  @keyframes dark-diagonal-fill {
-    from {
-      clip-path: polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  @keyframes lights-on {
+    0% {
+      opacity: 0;
     }
+    20% {
+      opacity: 0.3;
+    }
+    40% {
+      opacity: 0.1;
+    }
+    60% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
+  @keyframes lights-off {
+    from {
+      opacity: 1;
+    }
     to {
-      clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+      opacity: 0;
     }
   }
 
@@ -39,10 +59,16 @@
     inset: 0;
     background-color: #18181b;
     z-index: -1;
-    clip-path: polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%);
+    opacity: 0;
   }
 
+  /* Lights ON (dark mode enabled) */
   .dark .dark-bg-diagonal::before {
-    animation: dark-diagonal-fill 0.5s ease-in-out forwards;
+    animation: lights-on 0.6s ease-out forwards;
+  }
+
+  /* Lights OFF (dark mode disabled) */
+  .light .dark-bg-diagonal::before {
+    animation: lights-off 0.3s ease-in forwards;
   }
 }
