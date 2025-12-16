@@ -36,8 +36,7 @@ const Main = () => {
           <span
             className="bg-linear-to-r from-red-700 via-red-600 to-rose-600
             dark:from-yellow-400 dark:via-amber-500 dark:to-yellow-600
-            bg-clip-text text-transparent
-"
+            bg-clip-text text-transparent"
           >
             Favourite Movie
           </span>
