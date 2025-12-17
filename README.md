@@ -1,48 +1,175 @@
-# React + Vite
+# favMoovie 🎬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful, responsive movie discovery application built with React and Tailwind CSS. Features dark mode, dynamic search, and a modern UI with smooth animations.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **🌙 Dark Mode Toggle** - Seamless light/dark theme switching with system preference detection
+- **🔍 Movie Search** - Real-time search functionality to discover movies
+- **📱 Fully Responsive** - Optimized for mobile, tablet, and desktop screens
+- **🎨 Modern UI** - Gold and red gradient theme with smooth animations
+- **⚡ Fast Performance** - Built with React and optimized Tailwind CSS
+- **💾 Persistent Theme** - Theme preference saved to localStorage
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework:** React 18+
+- **Styling:** Tailwind CSS 4.1
+- **UI Components:** DaisyUI
+- **Icons:** Lucide React
+- **Font:** Quicksand (Google Fonts)
+- **Build Tool:** Vite
 
-## Expanding the ESLint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/favmoovie.git
+cd favmoovie
+```
 
-{/\_ <h1
-              className="text-8xl font-extrabold tracking-tight
-  bg-gradient-to-r from-[#b45309] via-[#dc2626] to-[#7c3aed]
-  bg-clip-text text-transparent"
-            >
-Movie Title
+2. Install dependencies:
+```bash
+npm install
+```
 
-</h1> _/}
+3. Start the development server:
+```bash
+npm run dev
+```
 
-     {/* <h1 className="text-8xl font-extrabold tracking-tight bg-gradient-to-r from-[#f5c77a] via-[#ff4d4d] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,77,77,0.35)]">
-              Movie Title
-            </h1> */}
+4. Open `http://localhost:5173` in your browser
 
-<!-- main hero content -->
-   <div className="main container max-w-1200 flex flex-1 flex-col">
-<div className="hero flex-1">
-        <div className="hero-content text-center">
-          <div className="max-w-xxl">
-            <div className="flex gap-4 justify-center items-center ">
-              <Clapperboard clas color="black" size={60} />
-              <h1 className="text-7xl">Search your favourite movie</h1>
-            </div>
+## 🎯 Project Structure
 
-            <p className="py-6 text-xl">
-              Find your favourite movies with just one search, all at your
-              fingertips
-            </p>
-          </div>
-        </div>
-      </div>
-      </div>
+```
+favmoovie/
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx          # Navigation & theme toggle
+│   │   └── search.jsx          # Movie search component
+│   ├── hooks/
+│   │   └── useDarkMode.js      # Dark mode logic hook
+│   ├── App.jsx                 # Main app component
+│   ├── App.css                 # Global styles & animations
+│   └── main.jsx                # React entry point
+├── public/
+├── tailwind.config.js          # Tailwind configuration
+├── index.html                  # HTML template
+└── package.json
+```
+
+## 🌓 Dark Mode Implementation
+
+The app uses a custom `useDarkMode` hook that:
+- Detects system dark mode preference
+- Saves theme choice to localStorage
+- Applies/removes the `dark` class on `<html>` element
+- Provides `[isDark, setIsDark]` state for toggle button
+
+```jsx
+const [isDark, setIsDark] = useDarkMode();
+```
+
+## 🎨 Color Theme
+
+**Light Mode:**
+- Primary Gradient: Red (#EF4444) → Rose (#F43F5E)
+- Background: White
+- Text: Black
+
+**Dark Mode:**
+- Primary Gradient: Gold (#FBBF24) → Amber (#F59E0B)
+- Background: Slate-950
+- Text: White
+
+## 🔧 Configuration
+
+### Tailwind Config (`tailwind.config.js`)
+
+```javascript
+export default {
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: { extend: {} },
+  plugins: [require("daisyui")],
+};
+```
+
+### DaisyUI Integration
+- Configured in `tailwind.config.js` via plugins
+- Themes: Light & Dark
+- Custom scrollbar styling included
+
+## 🎬 Key Components
+
+### Header (`Header.jsx`)
+- Logo with gradient text (responsive to theme)
+- Theme toggle button with animated Sun/Moon icons
+- Search integration
+- Responsive navbar with DaisyUI
+
+### useDarkMode Hook (`useDarkMode.js`)
+- Initializes theme from localStorage or system preference
+- Syncs DOM class with state
+- Returns `[isDark, setIsDark]` tuple
+
+### Global Styles (`App.css`)
+- Custom animations: `lights-on`, `lights-off`
+- Diagonal background animation for dark mode
+- Quicksand font family
+- Custom scrollbar styling
+
+## 🎬 Animations
+
+- **Lights On** - Smooth fade-in animation when entering dark mode (0.6s)
+- **Lights Off** - Quick fade-out when exiting dark mode (0.3s)
+- **Theme Toggle** - Smooth icon transitions with rotation and scale
+
+## 📱 Responsive Design
+
+- Mobile-first approach using Tailwind utilities
+- Flexbox layouts for adaptive spacing
+- Touch-friendly button sizes
+- Responsive typography scaling
+
+## 🚀 Available Scripts
+
+```bash
+# Development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🔐 Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📝 Contributing
+
+Contributions are welcome! Please:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙋 Support
+
+For issues or questions, please open a GitHub issue or contact the maintainer.
+
+---
+
+**Made with ❤️ by Farhan**
