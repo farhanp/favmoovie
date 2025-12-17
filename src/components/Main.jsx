@@ -31,7 +31,7 @@ const Main = () => {
         className="flex flex-col max-w-300 items-center justify-center mx-auto gap-4 sm:gap-4
        py-6 px-5 mt-4 sm:mb-2 sm:mt-8"
       >
-        <h1 className="text-3xl sm:text-4xl dark:text-white font-bold text-center">
+        <h1 className="text-4xl dark:text-white font-bold text-center">
           Discover your next{" "}
           <span
             className="bg-linear-to-r from-red-700 via-red-600 to-rose-600
@@ -41,7 +41,7 @@ const Main = () => {
             Favourite Movie
           </span>
         </h1>
-        <h3 className="dark:text-white text-md sm:text-xl text-center">
+        <h3 className="dark:text-white text-md sm:text-xl text-center mx-3 sm:mx-0">
           Search to find the perfect film for any mood. Find the film that
           matches your vibe. Grabbed your popcorn?{" "}
           <span className="text-xl">🍿</span>
