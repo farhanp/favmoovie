@@ -50,7 +50,7 @@ const Search = ({ setSearch, search, onSearch }) => {
 
       <button
         onClick={() => onSearch()}
-        className="btn 
+        className="btn border-0
          btn-md rounded-sm 
            px-6 py-3  font-semibold text-white
   bg-linear-to-r from-red-700 via-red-600 to-rose-600

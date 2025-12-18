@@ -4,12 +4,12 @@ import presetMovies from "../data/presetMovie.json";
 import Search from "./Search";
 import useApiCall from "../hooks/useApiCall";
 import Loader from "./Loader";
+import PageNotFound from "./PageNotFound";
 
 const Main = () => {
   // const [movieList, setMovieList] = useState();
   const { data, loading, error, dataFetch } = useApiCall("s"); // s = search
   const [search, setSearch] = useState("");
-  console.log(search);
 
   const handleClick = () => {
     setSearch(search);
@@ -48,14 +48,17 @@ const Main = () => {
         </h3>
       </div>
       <Search setSearch={setSearch} search={search} onSearch={handleClick} />
-      <div className="main px-4 pt-10 gap-6 sm:px-0 sm:gap-8 sm:pt-16 pb-15 flex flex-wrap sm:max-w-300 sm:mx-auto">
-        {data && data?.Search?.length > 0
-          ? data?.Search?.map((movie) => (
-              <Card key={movie?.imdbID} movie={movie} />
-            ))
-          : presetMovies.map((movie) => (
-              <Card key={movie?.imdbID} movie={movie} />
-            ))}
+      <div
+        className="main px-4 pt-10 gap-6 flex-1 sm:px-0 sm:gap-8 sm:pt-16 pb-15 flex justify-center items-center
+       flex-wrap sm:max-w-300 sm:mx-auto"
+      >
+        {data?.Search?.length > 0 ? (
+          data.Search.map((movie) => <Card key={movie.imdbID} movie={movie} />)
+        ) : data?.Response === "False" ? (
+          <PageNotFound />
+        ) : (
+          presetMovies.map((movie) => <Card key={movie.imdbID} movie={movie} />)
+        )}
       </div>
     </>
   );

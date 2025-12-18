@@ -17,7 +17,8 @@ const Footer = () => {
           "
           >
             Copyright © {new Date().getFullYear()} - All right reserved by
-            favMoovie Industries Ltd.
+            favMoovie Ltd.
+            <br />
             <span className="text-black dark:text-white">
               {" "}
               Made with <span className="text-red-400">&hearts;</span> by Farhan
