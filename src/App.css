@@ -14,8 +14,12 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: #ff1a1a #ffffff14;
-  font-family: 'Quicksand', sans-serif;
 }
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 
 @layer utilities {
   @keyframes lights-on {
