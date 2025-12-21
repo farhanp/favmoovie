@@ -41,8 +41,8 @@ const Main = () => {
         <Loader />
       ) : (
         <div
-          className="main px-4 pt-10 gap-6 flex-1 sm:px-0 sm:gap-8 sm:pt-16 pb-15 flex 
-       flex-wrap sm:max-w-300 sm:mx-auto"
+          className="main px-4 pt-10 gap-6 sm:gap-4 flex-1 xl:px-0 xl:gap-8 xl:pt-16 pb-15 flex 
+       flex-wrap xl:max-w-300 xl:mx-auto"
         >
           {moviesToRender ? (
             moviesToRender.map((movie) => (

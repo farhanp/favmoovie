@@ -3,9 +3,8 @@ import useDarkMode from "../hooks/useDarkMode";
 
 const Header = () => {
   const [isDark, setIsDark] = useDarkMode();
-  console.log(isDark);
   return (
-    <header className="navbar p-4 sm:p-0 sm:pt-4 flex gap-8 sm:mx-auto max-w-300">
+    <header className="navbar p-4 xl:p-0 sm:pt-4 flex gap-8 sm:mx-auto lg:max-w-300">
       <div className="flex items-center gap-2 p-0 flex-1">
         <h1
           className="btn btn-ghost text-2xl p-0 border-0 hover:shadow-none
