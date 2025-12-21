@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: ["light", "dark"],
+  /* themes: ["light", "dark"], */
   darkTheme: "dark",
   base: true,   // keep base styles
   logs: false,
   styled: true,
   rtl: false,
   prefix: "",
-  dataTheme: false, // <- disables automatic data-theme
+  dataTheme: true, // <- disables automatic data-theme
 }
 @custom-variant dark (&:where(.dark, .dark *));
 
