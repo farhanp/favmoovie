@@ -1,17 +1,27 @@
-import { Calendar, Star } from "lucide-react";
-import React, { useState } from "react";
+import { BadgeInfo, Calendar, Loader, Star } from "lucide-react";
+import React, { useRef, useState } from "react";
 import dummyPoster from "../assets/blank-poster.webp";
+import Modal from "./Modal";
+import useApiCall from "../hooks/useApiCall";
+import MovieDetails from "./MovieDetails";
 
 const Card = ({ movie }) => {
   const { Poster, Title, Year, Type, imdbRating: Rating } = movie;
   const [open, setOpen] = useState(false);
+  const dialogRef = useRef(null);
+  const { data, loading, dataFetch } = useApiCall("t"); // t = title
+
+  const handleMoreInfo = () => {
+    dataFetch(Title?.trim());
+    dialogRef.current?.showModal();
+  };
 
   return (
     <div
       className="group touch-manipulation card w-full sm:w-[calc(50%-8px)]  lg:w-[23%] rounded-xl
         shadow-lg relative overflow-hidden
         transition-all duration-300 ease-in-out
-        sm:hover:scale-110 sm:hover:z-999 cursor-pointer"
+        sm:hover:scale-110 sm:hover:z-90   cursor-pointer"
       onClick={() => {
         if (window.innerWidth < 769) {
           setOpen((prev) => !prev);
@@ -30,25 +40,22 @@ const Card = ({ movie }) => {
         {/* Overlay */}
         <div
           className={`
-    absolute inset-0 bg-black/30 backdrop-blur-sm
-    flex flex-col items-center justify-center gap-4
-    transition-opacity duration-300
-    opacity-0 hover:z-50
-    sm:group-hover:opacity-100
-    ${open ? "opacity-100" : ""}
-  `}
+          absolute inset-0 bg-black/30 backdrop-blur-sm
+          flex flex-col items-center justify-center gap-4
+          transition-opacity duration-300
+          opacity-0 z-80
+          sm:group-hover:opacity-100
+          ${open ? "opacity-100" : ""}
+          `}
         >
-          <Star size={80} color="gold" />
-          <h1 className="font-bold text-4xl text-white">{Rating}</h1>
-
-          <h1
-            className="text-2xl font-bold text-center
-      bg-linear-to-r from-red-700 via-red-600 to-rose-600
-      dark:from-yellow-400 dark:via-amber-500 dark:to-yellow-600
-      bg-clip-text text-transparent"
+          <BadgeInfo size={64} color="gold" />
+          <Modal
+            dialogRef={dialogRef}
+            loading={loading}
+            onOpen={handleMoreInfo}
           >
-            {Title}
-          </h1>
+            <MovieDetails data={data} />
+          </Modal>
         </div>
       </figure>
       <div className="card-body gap-3 w-full px-4 py-8 absolute bottom-0 bg-linear-to-t from-black/90 via-black/70 to-transparent">

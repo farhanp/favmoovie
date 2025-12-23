@@ -1,6 +1,6 @@
 const Loader = () => {
   return (
-    <div className="flex flex-1 max-w-300 mx-auto">
+    <div className="flex justify-center items-center flex-1 max-w-300 mx-auto">
       <span
         className="
       loading loading-infinity min-w-24 sm:min-w-30
