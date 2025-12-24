@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 
 // const BASE_URL = "http://www.omdbapi.com/";
 
-const BASE_URL = "/api/";
+const BASE_URL = "/api/search";
 
 const useApiCall = (search) => {
   const [state, setState] = useState({
