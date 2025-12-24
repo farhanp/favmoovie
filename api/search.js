@@ -1,8 +1,8 @@
 export default async function handler(req, res) {
-  const { s } = req.query;
+  const { search, value } = req.query;
 
   const response = await fetch(
-    `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${s}`
+    `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&${search}=${value}`
   );
 
   const data = await response.json();

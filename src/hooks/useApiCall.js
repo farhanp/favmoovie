@@ -22,7 +22,7 @@ const useApiCall = (search) => {
     const controller = new AbortController();
     abortControllerRef.current = controller;
     setState((prev) => ({ ...prev, loading: true, error: null }));
-    const url = `${BASE_URL}?${search}=${encodeURIComponent(value)}`;
+    const url = `${BASE_URL}?search=${search}&value=${value}`;
     const options = {
       method: "GET",
       signal: controller.signal,
