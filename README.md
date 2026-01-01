@@ -1,6 +1,6 @@
 # favMoovie 🎬
 
-A beautiful, responsive movie discovery application built with React and Tailwind CSS. Features dark mode, dynamic search, and a modern UI with smooth animations.
+A beautiful, responsive movie discovery application built with React and Tailwind CSS. Features dark mode, dynamic search, and a modern UI with smooth animations. (More features & updates coming 🔜)
 
 ## ✨ Features
 
