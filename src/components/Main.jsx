@@ -6,6 +6,7 @@ import useApiCall from "../hooks/useApiCall";
 import Loader from "./Loader";
 import PageNotFound from "./PageNotFound";
 import Hero from "./Hero";
+import Error from "./Error";
 
 const Main = () => {
   // const [movieList, setMovieList] = useState();
@@ -29,7 +30,7 @@ const Main = () => {
   // }
 
   if (error) {
-    return <div>{error}</div>;
+    return <Error error={error} />;
   }
 
   return (

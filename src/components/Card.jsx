@@ -21,7 +21,7 @@ const Card = ({ movie }) => {
       className="group touch-manipulation card w-full sm:w-[calc(50%-8px)]  lg:w-[23%] rounded-xl
         shadow-lg relative overflow-hidden
         transition-all duration-300 ease-in-out
-        sm:hover:scale-110 sm:hover:z-90   cursor-pointer"
+        sm:hover:scale-110 sm:hover:z-90 cursor-pointer"
       onClick={() => {
         if (window.innerWidth < 769) {
           setOpen((prev) => !prev);

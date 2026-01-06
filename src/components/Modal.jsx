@@ -10,14 +10,15 @@ const Modal = ({ dialogRef, loading, onOpen, children }) => {
         More Info
       </button>
       <dialog ref={dialogRef} className="modal">
-        <div className="modal-box relative  flex justify-center flex-col min-h-45">
+        <div className="modal-box p-0 relative flex justify-center flex-col min-h-45">
           {loading ? (
             <Loader />
           ) : (
             <>
               <X
                 onClick={() => dialogRef.current.close()}
-                className="absolute m-3 cursor-pointer right-0 top-0"
+                color="white"
+                className="absolute z-20 m-1 font-extrabold cursor-pointer right-0 top-0"
               />
               {children}
             </>
