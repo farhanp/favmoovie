@@ -24,7 +24,7 @@ const MovieDetails = ({ data }) => {
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/60 to-transparent"></div>
       </div>
-      <div className="movie-details-section overflow-scroll px-3 py-4 flex flex-col gap-4">
+      <div className="movie-details-section overflow-scroll px-3 py-4 sm:px-4 flex flex-col gap-4">
         <h3 className="font-bold text-2xl mb-2">{title}</h3>
         <div className="flex items-center gap-4">
           <div className="flex badge badge-outline badge-primary items-center gap-1">
