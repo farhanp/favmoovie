@@ -62,7 +62,10 @@ const MovieDetails = ({ data }) => {
           <div>
             {genre &&
               formatList(genre).map((genreEle) => (
-                <p className="badge mr-2 mb-3 badge-soft badge-primary dark:badge-warning">
+                <p
+                  key={genreEle}
+                  className="badge mr-2 mb-3 badge-soft badge-primary dark:badge-warning"
+                >
                   {genreEle}
                 </p>
               ))}
@@ -75,7 +78,10 @@ const MovieDetails = ({ data }) => {
           <div>
             {actors &&
               formatList(actors).map((actorsEle) => (
-                <p className="badge mr-2 mb-3 badge-neutral dark:badge-soft dark:badge-success">
+                <p
+                  key={actorsEle}
+                  className="badge mr-2 mb-3 badge-neutral dark:badge-soft dark:badge-success"
+                >
                   {actorsEle}
                 </p>
               ))}

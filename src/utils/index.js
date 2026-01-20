@@ -4,8 +4,8 @@ export function formatRating(rating) {
 
 export function formatTime(duration) {
   if (duration) {
-    const minutes = duration.split(" ")[0];
-    return `${Math.floor(minutes / 60)}h ${Math.floor(minutes % 60)}min`;
+    const min = parseInt(duration.replace(/\D/g, ""), 10);
+    return `${Math.floor(min / 60)}h ${Math.floor(min % 60)}min`;
   }
 }
 
