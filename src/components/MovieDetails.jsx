@@ -1,5 +1,4 @@
-import { Calendar, Clock, Star } from "lucide-react";
-import React from "react";
+import { Calendar, Clapperboard, Clock, Star } from "lucide-react";
 import { formatList, formatRating, formatTime } from "../utils";
 
 const MovieDetails = ({ data }) => {
@@ -12,6 +11,7 @@ const MovieDetails = ({ data }) => {
     Runtime: runtime,
     Genre: genre,
     Actors: actors,
+    Director: director,
   } = data;
 
   return (
@@ -24,46 +24,62 @@ const MovieDetails = ({ data }) => {
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/60 to-transparent"></div>
       </div>
-      <div className="movie-details-section overflow-scroll p-3 flex flex-col gap-2">
+      <div className="movie-details-section overflow-scroll px-3 py-4 flex flex-col gap-4">
         <h3 className="font-bold text-2xl mb-2">{title}</h3>
         <div className="flex items-center gap-4">
           <div className="flex badge badge-outline badge-primary items-center gap-1">
-            <Star fill="yellow" color="yellow" size={16} />
-            <span className="text-white">{formatRating(ratings)}/10</span>
+            <Star fill="orange" color="orange" size={16} />
+            <span className="dark:text-white opacity-75">
+              {formatRating(ratings)}/10
+            </span>
           </div>
           <div className="flex opacity-75 items-center gap-1">
             <Calendar size={16} /> <span className="text-md">{year}</span>
           </div>
           <div className="flex opacity-75 items-center gap-1">
             <Clock size={16} />{" "}
-            <span className="text-md">{formatTime(runtime)}</span>
+            <span className="text-md">
+              {runtime === "N/A" ? "N/A" : formatTime(runtime)}
+            </span>
           </div>
         </div>
-        <div>
-          <h3>Overview</h3>
-          <p className="py-4">{plot}</p>
+
+        {/* Director */}
+        <div className="flex flex-col gap-1">
+          <h3 className="opacity-75 font-bold">Director</h3>
+          <p className="text-sm">{director}</p>
+        </div>
+
+        {/* Plot - Overview */}
+        <div className="flex gap-1 flex-col">
+          <h3 className="opacity-75 font-bold">Overview</h3>
+          <p className="text-sm">{plot}</p>
         </div>
 
         {/* Genre */}
-        <div className="">
-          <h3>Genre</h3>
-          {genre &&
-            formatList(genre).map((genreEle) => (
-              <div className="badge mx-1 badge-soft badge-warning">
-                {genreEle}
-              </div>
-            ))}
+        <div className="flex flex-col gap-1">
+          <h3 className="opacity-75 font-bold">Genres</h3>
+          <div>
+            {genre &&
+              formatList(genre).map((genreEle) => (
+                <p className="badge mr-2 mb-3 badge-soft badge-primary dark:badge-warning">
+                  {genreEle}
+                </p>
+              ))}
+          </div>
         </div>
 
         {/* Cast */}
-        <div className="">
-          <h3>Cast</h3>
-          {actors &&
-            formatList(actors).map((actorsEle) => (
-              <div className="badge mx-1 badge-soft badge-success">
-                {actorsEle}
-              </div>
-            ))}
+        <div className="flex flex-col gap-1">
+          <h3 className="opacity-75 font-bold">Cast</h3>
+          <div>
+            {actors &&
+              formatList(actors).map((actorsEle) => (
+                <p className="badge mr-2 mb-3 badge-neutral dark:badge-soft dark:badge-success">
+                  {actorsEle}
+                </p>
+              ))}
+          </div>
         </div>
       </div>
     </div>
